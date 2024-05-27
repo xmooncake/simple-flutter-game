@@ -20,7 +20,7 @@ class MyGame extends FlameGame with KeyboardEvents {
 
   @override
   FutureOr<void> onLoad() async {
-    await FlameAudio.loop('background.mp3');
+    await FlameAudio.loop('background.mp3', volume: 0.5);
 
     return super.onLoad();
   }
