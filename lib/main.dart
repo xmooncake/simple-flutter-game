@@ -1,27 +1,25 @@
-import 'dart:async';
-
-import 'package:flame/game.dart';
-import 'package:flame/input.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
-import 'package:simple_flame_game/utilities/utilities.dart';
+import 'package:simple_flame_game/home.dart';
 
-void main() {
-  runApp(
-    GameWidget(
-      game: MyGame(),
-    ),
-  );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await FlameAudio.loop('background.mp3', volume: 0.5);
+
+  runApp(App());
 }
 
-class MyGame extends FlameGame with KeyboardEvents {
+class App extends StatelessWidget {
   @override
-  Color backgroundColor() => Colors.white;
-
-  @override
-  FutureOr<void> onLoad() async {
-    await FlameAudio.loop('background.mp3', volume: 0.5);
-
-    return super.onLoad();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+      ),
+      home: const Scaffold(
+        body: HomeScreen(),
+      ),
+    );
   }
 }

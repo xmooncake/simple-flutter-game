@@ -7,6 +7,7 @@ class PlayerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Card(
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text('Username'),
           Text('Score'),
