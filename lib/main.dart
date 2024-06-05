@@ -18,7 +18,13 @@ class App extends StatelessWidget {
         primarySwatch: Colors.purple,
       ),
       home: const Scaffold(
-        body: GameScreen(),
+        body: GameScreen(
+          usernameLeft: '',
+          scoreLeft: '',
+          usernameRight: '',
+          scoreRight: '',
+          roundNumber: '',
+        ),
       ),
     );
   }
