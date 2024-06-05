@@ -37,6 +37,7 @@ dependencies:
   google_fonts: ^6.2.1
   flame_audio: ^2.10.1
   flutter_bloc: ^8.1.5
+  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:
