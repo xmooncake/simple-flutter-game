@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "simple_flame_game",
+            "name": "simple_flutter_game",
             "request": "launch",
             "type": "dart",
             "args": [

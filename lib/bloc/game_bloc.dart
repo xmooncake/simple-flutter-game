@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gif/gif.dart';
-import 'package:simple_flame_game/components/received_points.dart';
+import 'package:simple_flutter_game/components/received_points.dart';
 
 part 'game_event.dart';
 part 'game_state.dart';

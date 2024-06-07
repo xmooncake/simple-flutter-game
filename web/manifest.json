@@ -1,6 +1,6 @@
 {
-    "name": "simple_flame_game",
-    "short_name": "simple_flame_game",
+    "name": "simple_flutter_game",
+    "short_name": "simple_flutter_game",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

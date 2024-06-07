@@ -1,6 +1,6 @@
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
-import 'package:simple_flame_game/game.screen.dart';
+import 'package:simple_flutter_game/game.screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

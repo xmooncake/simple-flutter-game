@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:simple_flame_game/bloc/game_bloc.dart';
-import 'package:simple_flame_game/components/game_button.dart';
+import 'package:simple_flutter_game/bloc/game_bloc.dart';
+import 'package:simple_flutter_game/components/game_button.dart';
 
 class ControlsRow extends StatelessWidget {
   const ControlsRow({
