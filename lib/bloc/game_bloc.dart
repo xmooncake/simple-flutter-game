@@ -46,7 +46,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
         await Future.delayed(const Duration(milliseconds: 500));
 
-        print('${state.userScore}, ${state.computerScore}');
         if (state.userScore >= state.computerScore) {
           await _playGif('assets/gifs/win.gif');
         } else {
@@ -98,8 +97,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   String get computerScoreApproximation {
     if (state.currentRound == 1) return '??';
 
-    final int low = (state.computerScore * 0.75124).round();
-    final int high = (state.computerScore * 1.25341325).round();
+    final int low = (state.computerScore * 0.75).round();
+    final int high = (state.computerScore * 1.25).round();
     return '$low - $high';
   }
 
