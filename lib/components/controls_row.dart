@@ -10,25 +10,38 @@ class ControlsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        // GameButton(icon: Icons.play_arrow, label: 'Kontynuuj', onPressed:  , ),
-        GameButton(
-          icon: Icons.swap_horiz_outlined,
-          label: 'Sprawdzam',
-          onPressed: () => context.read<GameBloc>().add(
-                GameCheckEvent(),
-              ),
-        ),
-        GameButton(
-          icon: Icons.refresh,
-          label: 'Restart',
-          onPressed: () => context.read<GameBloc>().add(
-                GameRestartedEvent(),
-              ),
-        ),
-      ],
+    return BlocBuilder<GameBloc, GameState>(
+      builder: (context, state) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            GameButton(
+              icon: Icons.play_arrow,
+              label: 'Kontynuuj',
+              onPressed: () => context.read<GameBloc>().add(
+                    GameContinuedEvent(),
+                  ),
+              isDisabled: state.status != GameStatus.playing,
+            ),
+            GameButton(
+              icon: Icons.swap_horiz_outlined,
+              label: 'Sprawdzam',
+              onPressed: () => context.read<GameBloc>().add(
+                    GameCheckEvent(),
+                  ),
+              isDisabled: state.status != GameStatus.playing,
+            ),
+            GameButton(
+              icon: Icons.refresh,
+              label: 'Restart',
+              onPressed: () => context.read<GameBloc>().add(
+                    GameRestartedEvent(),
+                  ),
+              isDisabled: state.status == GameStatus.animating,
+            ),
+          ],
+        );
+      },
     );
   }
 }

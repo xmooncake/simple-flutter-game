@@ -1,10 +1,11 @@
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_flame_game/game.screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // await FlameAudio.loop('background.mp3', volume: 0.5);
+  await FlameAudio.loop('background.mp3', volume: 0.5);
 
   runApp(App());
 }

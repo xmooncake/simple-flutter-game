@@ -13,6 +13,16 @@ class PlayerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
+    String getScoreString() {
+      if (isUser) {
+        return context.read<GameBloc>().state.userScore.toString();
+      }
+
+      return context.read<GameBloc>().state.status == GameStatus.finished
+          ? context.read<GameBloc>().state.computerScore.toString()
+          : '??';
+    }
+
     return Flexible(
       child: Center(
         child: SizedBox(
@@ -35,15 +45,26 @@ class PlayerCard extends StatelessWidget {
                   const Text('Wynik: '),
                   const SizedBox(height: 5),
                   BlocBuilder<GameBloc, GameState>(
-                    buildWhen: (previous, current) =>
-                        previous.userScore != current.userScore ||
-                        previous.computerScore != current.computerScore,
                     builder: (context, state) {
                       return Text(
-                        (isUser ? state.userScore : state.computerScore)
-                            .toString(),
+                        getScoreString(),
                         style: Theme.of(context).textTheme.headlineMedium,
                       );
+                    },
+                  ),
+                  const SizedBox(height: 30),
+                  BlocBuilder<GameBloc, GameState>(
+                    builder: (context, state) {
+                      if (!isUser) {
+                        return Text(
+                          'Szacowany wynik: ${context.read<GameBloc>().computerScoreApproximation}',
+                          style:
+                              Theme.of(context).textTheme.labelMedium!.copyWith(
+                                    color: Colors.grey,
+                                  ),
+                        );
+                      }
+                      return const SizedBox();
                     },
                   ),
                 ],

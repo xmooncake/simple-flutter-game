@@ -29,8 +29,12 @@ class _GameScreenState extends State<GameScreen>
       create: (context) => GameBloc(controller: gifController),
       child: Scaffold(
         appBar: AppBar(
-          title: const AppBarTitle(
-            round: 1,
+          title: BlocBuilder<GameBloc, GameState>(
+            builder: (context, state) {
+              return AppBarTitle(
+                round: state.currentRound,
+              );
+            },
           ),
           centerTitle: true,
         ),
