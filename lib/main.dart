@@ -1,7 +1,4 @@
-import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:simple_flame_game/bloc/game_bloc.dart';
 import 'package:simple_flame_game/game.screen.dart';
 
 void main() async {
@@ -19,10 +16,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: BlocProvider(
-        create: (context) => GameBloc(),
-        child: const GameScreen(),
-      ),
+      home: const GameScreen(),
     );
   }
 }
